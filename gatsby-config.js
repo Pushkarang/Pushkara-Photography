@@ -11,6 +11,7 @@ module.exports = {
         },
         
       },
+      `gatsby-transformer-json`,
       {
         resolve: `gatsby-plugin-sharp`,
         options: {

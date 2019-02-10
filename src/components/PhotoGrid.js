@@ -1,35 +1,59 @@
 import React from 'react';
 import Gallery from 'react-photo-gallery';
-import Modal from '@material-ui/core/Modal';
+import Lightbox from 'react-images';
 
 export default class PhotoGrid extends React.Component {
-    state = {
-        open: false,
-      };
-      handleOpen = (e, a) => {
-          console.log(a)
-        this.setState({ open: true , img: e.target});
-      };
-    
-      handleClose = () => {
-        this.setState({ open: false });
-      };
-    
-    click(obj){
-        console.log(obj);
+    constructor() {
+        super();
+        this.state = { currentImage: 0 };
+        this.closeLightbox = this.closeLightbox.bind(this);
+        this.openLightbox = this.openLightbox.bind(this);
+        this.gotoNext = this.gotoNext.bind(this);
+        this.gotoPrevious = this.gotoPrevious.bind(this);
+        this.goto = this.goto.bind(this);
+
+    }
+    openLightbox(event, obj) {
+        this.setState({
+            currentImage: obj.index,
+            lightboxIsOpen: true,
+        });
+    }
+    closeLightbox() {
+        this.setState({
+            currentImage: 0,
+            lightboxIsOpen: false,
+        });
+    }
+    gotoPrevious() {
+        this.setState({
+            currentImage: this.state.currentImage - 1,
+        });
+    }
+    gotoNext() {
+        this.setState({
+            currentImage: this.state.currentImage + 1,
+        });
+    }
+    goto(index) {
+        this.setState({
+            currentImage: index
+        })
     }
     render() {
         return (<div>
-            <Gallery photos={this.props.photoSet} margin={2} onClick={this.handleOpen}/>
-            {this.state.img && <Modal
-          aria-labelledby={"simple-modal-title"}
-          aria-describedby={"simple-modal-description"}
-          open={this.state.open}
-          onClose={this.handleClose}>
-          <h2><img src={this.state.img.src}/></h2>
-          </Modal>
-          }
-            </div>
+            <Gallery photos={this.props.photoSet} margin={2} onClick={this.openLightbox} />
+            <Lightbox images={this.props.photoSet}
+                onClose={this.closeLightbox}
+                onClickPrev={this.gotoPrevious}
+                onClickNext={this.gotoNext}
+                currentImage={this.state.currentImage}
+                isOpen={this.state.lightboxIsOpen}
+                onClickThumbnail={this.goto}
+                showThumbnails={true}
+                backdropClosesModal={true}
+            />
+        </div>
         );
     }
 }
