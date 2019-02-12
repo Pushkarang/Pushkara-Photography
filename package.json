@@ -10,7 +10,7 @@
     "cleancache": "rimraf .cache/*"
   },
   "dependencies": {
-    "@material-ui/core": "^3.6.2",
+    "@material-ui/core": "^3.9.2",
     "@material-ui/icons": "^3.0.1",
     "gatsby": "^2.0.33",
     "gatsby-image": "^2.0.24",
