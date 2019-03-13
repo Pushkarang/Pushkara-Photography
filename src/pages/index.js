@@ -1,13 +1,13 @@
 import React from 'react';
 import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 import { graphql } from 'gatsby';
-import PhotoGallery from '../components/Gallery';
-import Appbar from '../components/Appbar';
+import PhotoGallery from '../components/Gallery/PhotoGallery';
+import TopBar from '../components/Common/TopBar';
 
 const theme = createMuiTheme({
   palette: {
     primary: { main: '#ffffff' },
-    secondary: { main: '#28282a'}
+    secondary: { main: '#ff3366'}
   },
   layout: {
     drawerWidth: 232
@@ -17,26 +17,19 @@ const theme = createMuiTheme({
 export default class Index extends React.Component {
   render() {
     const { data } = this.props;
-    const photoSet = data.allImageSharp.edges.map((image) => ({
-      src: image.node.fluid.originalImg,
-      caption: image.node.fluid.originalName,
-      width: image.node.fixed.width,
-      height: image.node.fixed.height
-    }));
-    const imageData = data.allFile.edges;
-
     return (
       <MuiThemeProvider theme={theme} key="app">
-          <Appbar/>
-          <PhotoGallery photoSet={photoSet} images={data.allImageSharp.edges} data={imageData} />
+          <TopBar/>
+          <PhotoGallery images={data.allImageSharp.edges} data={data.allFile.edges} />
       </MuiThemeProvider>
     );
   }
 }
 
+
 export const query = graphql`
   query {
-    allImageSharp(sort: {fields: [fixed___originalName],  order: ASC})  {
+    allImageSharp (filter: {fluid: {originalName: {ne: "profile.jpg"}}}) {
       edges {
         node {
           fluid (toFormat : JPG){
@@ -61,9 +54,8 @@ export const query = graphql`
           childStaticJson {
             title
             description
-            place
+            story
             category
-            exif
             date
             insta 
           }
