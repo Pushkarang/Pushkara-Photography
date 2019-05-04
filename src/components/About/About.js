@@ -2,7 +2,7 @@ import * as React from 'react';
 import Image from '../Image/Image';
 import Paper from '@material-ui/core/Paper';
 import Typography from "@material-ui/core/Typography"; 
-
+import Instalink from './Instalink';
 export default class About extends React.Component {
     render() {
         return (
@@ -22,8 +22,8 @@ export default class About extends React.Component {
                         <Typography align={'center'} gutterBottom variant={'caption'}>
                          {'Follow me on'}
                         </Typography>
-                        <Typography align={'center'} style={{marginTop: 5}}>
-                        {/* <Instalink link={'https://www.instagram.com/pushkara_nagaragadde/'} /> */}
+                        <Typography align={'center'} style={{marginTop: -10}}>
+                            <Instalink link={'https://www.instagram.com/pushkara_nagaragadde/'} />
                         </Typography>
                     </div>
                 </Paper>
