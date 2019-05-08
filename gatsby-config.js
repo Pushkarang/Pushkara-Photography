@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: `This is title`,
+    title: `Pushkara Photography`,
   },
   plugins: [
     {
@@ -9,8 +9,8 @@ module.exports = {
         name: `src`,
         path: `${__dirname}/static/`,
       },
-
     },
+    `gatsby-plugin-react-helmet`,
     `gatsby-transformer-json`,
     {
       resolve: `gatsby-plugin-sharp`,

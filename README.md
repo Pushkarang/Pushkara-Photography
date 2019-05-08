@@ -1,12 +1,6 @@
-# gatsby-starter-hello-world
-Starter with the bare essentials needed for a [Gatsby](https://www.gatsbyjs.org/) site.
+[![Build Status](https://travis-ci.org/Pushkarang/Pushkara-Photography.svg?branch=master)](https://travis-ci.org/Pushkarang/Pushkara-Photography)
 
-Install this starter (assuming Gatsby is installed) by running from your CLI:
-```
-gatsby new gatsby-site https://github.com/gatsbyjs/gatsby-starter-hello-world
-```
+# [Pushkara Photography](https://wolfie-phy.surge.sh)
 
-Or [view the live demo here](https://gatsby-starter-hello-world-demo.netlify.com/).
 
-## Running in development
-`gatsby develop`
+It's a web with collection of photos and description taken by me.
