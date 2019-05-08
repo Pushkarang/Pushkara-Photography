@@ -33,6 +33,9 @@ const styles = theme => ({
   TypographySecondary: {
     color: '#ff3366',
   },
+  topBar: {
+    zIndex: 10,
+  }
 });
 
 function TopBar(props) {
@@ -40,7 +43,7 @@ function TopBar(props) {
 
   return (
     <div>
-      <AppBar position="fixed" elevation={0} color={'primary'}>
+      <AppBar className={classes.topBar} position="fixed" elevation={0} color={'primary'}>
         <Toolbar className={classes.toolbar}>
           <div className={classes.left} id={'left-space'}/>
             <Link

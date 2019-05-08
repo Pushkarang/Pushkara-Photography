@@ -13,14 +13,11 @@ export default class PhotoModal extends React.Component {
                 onClose={this.props.handleClose}
                 anchorEl={this.props.el}
                 anchorOrigin={{
-                    vertical: 'top',
-                    horizontal: 'left',
+                    vertical: 'center',
+                    horizontal: 'center',
                 }}
                 elevation={24}
-                transformOrigin={{
-                    vertical: 'top',
-                    horizontal: 'left'
-                }}>
+                >
                 <ImageCard
                     imageComponent={<Image image={this.props.image}/>}
                     dataComponent={<ImageData data={this.props.imageData}/>}

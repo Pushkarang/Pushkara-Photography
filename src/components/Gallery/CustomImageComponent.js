@@ -12,7 +12,7 @@ const SelectedImage = ({
       <div
         style={{ margin, height: photo.height, width: photo.width}}
       >
-      <Button raised="true" id='imageButton' style={{padding: 0}} onClick={e => onClick(e, { index, photo })} >
+      <Button id='imageButton' style={{padding: 0, zIndex: 9}} onClick={e => onClick(e, { index, photo })} >
         <img
           {...photo}
           alt='imageCard'
