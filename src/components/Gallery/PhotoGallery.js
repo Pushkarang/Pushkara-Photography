@@ -54,7 +54,8 @@ class PhotoGallery extends React.Component {
             src: image.node.fluid.originalImg,
             caption: image.node.fluid.originalName,
             width: image.node.fixed.width,
-            height: image.node.fixed.height
+            height: image.node.fixed.height,
+            fluid: image.node.fluid
           }));
 
         return <div>

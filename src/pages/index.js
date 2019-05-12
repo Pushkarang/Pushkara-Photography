@@ -35,12 +35,12 @@ export const query = graphql`
       edges {
         node {
           fluid (toFormat : JPG){
-          src
-          originalName
-          originalImg
-          aspectRatio
-          srcSet
-          sizes
+            src
+            originalName
+            originalImg
+            aspectRatio
+            srcSetWebp
+            sizes
           }
           fixed (toFormat : JPG){
             src

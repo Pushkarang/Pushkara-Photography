@@ -40,7 +40,7 @@ export const query = graphql`
         originalName
         originalImg
         aspectRatio
-        srcSet
+        srcSetWebp
         sizes
       }
     }
