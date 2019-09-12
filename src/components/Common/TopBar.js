@@ -35,24 +35,52 @@ const styles = theme => ({
   },
   topBar: {
     zIndex: 10,
+    transition: 'top 1s'
   }
 });
 
-function TopBar(props) {
-  const { classes } = props;
+class TopBar extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      previousScrollPosition: typeof window !== 'undefined' && window.pageYOffset,
+      visible: true
+    };
+  }
 
-  return (
-    <div>
-      <AppBar className={classes.topBar} position="fixed" elevation={0} color={'primary'}>
-        <Toolbar className={classes.toolbar}>
-          <div className={classes.left} id={'left-space'}/>
+  componentDidMount() {
+    window.addEventListener("scroll", this.handleScroll);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("scroll", this.handleScroll);
+  }
+
+  handleScroll = () => {
+    const {previousScrollPosition} = this.state;
+    const currentScrollPosition = typeof window !== 'undefined' && window.pageYOffset;
+    const visible = previousScrollPosition > currentScrollPosition;
+    this.setState({
+      previousScrollPosition: currentScrollPosition,
+      visible
+    });
+  }
+
+  render() {
+    const { classes } = this.props;
+    const appBarTopPosition = this.state.visible ? 0 : -70;
+    return (
+      <div>
+        <AppBar className={classes.topBar} style={{top: appBarTopPosition}} position="fixed" elevation={0} color={'primary'}>
+          <Toolbar className={classes.toolbar}>
+            <div className={classes.left} id={'left-space'} />
             <Link
               variant="h6"
               color="inherit"
               className={classes.title}
               underline={'none'}
               id={'title'}
-              >
+            >
               {'PUSHKARA PHOTOGRAPHY'}
             </Link>
             <div className={classes.right}>
@@ -75,10 +103,11 @@ function TopBar(props) {
               </Link>
             </div>
           </Toolbar>
-      </AppBar>
-      <div className={classes.placeholder} />
-    </div>
-  );
+        </AppBar>
+        <div className={classes.placeholder} />
+      </div>
+    );
+  }
 }
 
 export default withStyles(styles)(TopBar);
