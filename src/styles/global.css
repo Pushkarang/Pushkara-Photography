@@ -47,14 +47,14 @@
         margin-left: 350px !important;
         margin-top: 50px !important;
     }
+    #imageButton:hover {
+        animation-name: raiseButton;
+        animation-duration: 0.3s;
+        animation-fill-mode: forwards;
+        animation-delay: 0.5s;
+    }
 }
 
-#imageButton:hover {
-    animation-name: raiseButton;
-    animation-duration: 0.3s;
-    animation-fill-mode: forwards;
-    animation-delay: 0.5s;
-}
 
 #imageButton , img{
     border-radius: .1cm;
