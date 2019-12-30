@@ -10,6 +10,18 @@ module.exports = {
         path: `${__dirname}/static/`,
       },
     },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `Pushkara Photography`,
+        short_name: `Wolfie Phy`,
+        start_url: `/`,
+        background_color: `white`,
+        theme_color: `#ff3366`,
+        display: `standalone`,
+      },
+    },
+    `gatsby-plugin-offline`,
     `gatsby-plugin-react-helmet`,
     `gatsby-transformer-json`,
     {

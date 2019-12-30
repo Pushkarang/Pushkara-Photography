@@ -10,6 +10,6 @@ script: gatsby build
 deploy:
   provider: surge
   project: ./public/
-  domain: wolfie-phy.surge.sh
+  domain: https://wolfie-phy.surge.sh
   on: master
   skip_cleanup: true
