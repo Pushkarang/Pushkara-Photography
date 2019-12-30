@@ -16,8 +16,8 @@
         display: none;
     }
     a, a>button>span {
-        font-size: 11px !important;
-        font-weight: 400 !important;
+        font-size: 0.8em !important;
+        font-weight: 500 !important;
     }
 }
 

@@ -7,8 +7,8 @@ export default class About extends React.Component {
     render() {
         return (
             <div>
-                <Paper elevation={15} style={{ width: 340, position: 'absolute', marginLeft: 'auto', marginRight: 'auto', left: 0, right: 0, height: 500, top: 100 }}>
-                    <Image imageStyle={{ width: 300, marginLeft: 20, position: 'absolute', top: -20, overflow: 'visible' }} image={this.props.image} />
+                <Paper elevation={15} style={{ padding: 5, width: 340, position: 'absolute', marginLeft: 'auto', marginRight: 'auto', left: 0, right: 0, height: 500, top: 100 }}>
+                    <Image imageStyle={{ width: 300, marginLeft: 17, position: 'absolute', top: -20, overflow: 'visible' }} image={this.props.image} />
                     <div style={{ top: 300, position: 'relative' }}>
                         <Typography align={'center'} gutterBottom variant="h5" >
                             {'Pushkara N G'}

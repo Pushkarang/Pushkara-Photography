@@ -48,6 +48,14 @@ class PhotoGallery extends React.Component {
         this.setState({ showModal: false });
     }
 
+    columns = (containerWidth) => {
+        let columns = 1;
+        if (containerWidth >= 640) columns = 2;
+        if (containerWidth >= 900) columns = 3;
+        if (containerWidth >= 1500) columns = 4;
+        return columns;
+    }
+
     render() {
         const { classes, images } = this.props;
         const photoSet = images.map((image) => ({
@@ -59,7 +67,7 @@ class PhotoGallery extends React.Component {
           }));
 
         return <div>
-            <Gallery columns={3} photos={photoSet} margin={10} onClick={this.openModal} ImageComponent={CustomImageComponent}/>
+            <Gallery columns={this.columns} photos={photoSet} margin={10} onClick={this.openModal} ImageComponent={CustomImageComponent}/>
             {this.state.showModal && <div className={classes.backdrop}></div>}
             {this.state.imageData && <PhotoModal 
                 open={this.state.showModal}

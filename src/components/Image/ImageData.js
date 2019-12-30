@@ -5,6 +5,10 @@ import { withStyles } from "@material-ui/core/styles";
 const style = theme => ({
     justify: {
         textAlign: 'justify'
+    },
+    thin: {
+        fontWeight: 400,
+        textAlign: 'justify'
     }
 });
 
@@ -19,10 +23,10 @@ class ImageDetails extends React.Component {
                 <Typography gutterBottom variant="h4" >
                     {data.title}
                 </Typography>
-                <Typography className={classes.justify} gutterBottom variant="body2" >
+                <Typography className={classes.thin} gutterBottom variant="body2" component="p">
                     {data.description}
                 </Typography>
-                <Typography className={classes.justify} gutterBottom variant="body2" >
+                <Typography className={classes.thin} gutterBottom variant="body2" component="p">
                     {data.story}
                 </Typography>
                 <Typography className={classes.justify} gutterBottom variant="caption" >
