@@ -8,7 +8,8 @@
     "start": "npm run develop",
     "build": "gatsby build",
     "serve": "gatsby serve",
-    "cleancache": "rimraf .cache/*"
+    "cleancache": "rimraf .cache/*",
+    "deploy": "./deploy.sh"
   },
   "dependencies": {
     "@material-ui/core": "^3.9.2",
