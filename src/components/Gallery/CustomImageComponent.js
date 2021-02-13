@@ -11,6 +11,7 @@ const SelectedImage = ({
     return (
       <div
         style={{ margin, height: photo.height, width: photo.width}}
+        className={'gallery-image'}
       >
       <Button id='imageButton' style={{padding: 0, zIndex: 9}} onClick={e => onClick(e, { index, photo })} >
         <Img

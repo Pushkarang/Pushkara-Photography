@@ -22,7 +22,7 @@ export default class Index extends React.Component {
       <MuiThemeProvider theme={theme} key="app">
         <Meta/>
         <TopBar />
-        <PhotoGallery images={data.allImageSharp.edges} data={data.allFile.edges} />
+        <PhotoGallery images={data.allImageSharp.edges} />
       </MuiThemeProvider>
     );
   }
@@ -39,27 +39,13 @@ export const query = graphql`
             originalName
             originalImg
             aspectRatio
-            srcSetWebp
+            srcSet
             sizes
           }
           fixed (toFormat : JPG){
             src
             width
             height
-          }
-        }
-      }
-    }
-    allFile(filter: {extension: {eq: "json"}}) {
-      edges {
-        node {
-          childStaticJson {
-            title
-            description
-            story
-            category
-            date
-            insta 
           }
         }
       }

@@ -30,17 +30,11 @@ class PhotoGallery extends React.Component {
     }
 
     openModal = (e, obj) => {
-        const images = this.props.images;
-        const imageData = this.props.data.filter((imageEdge) => {
-            const imageFileName = images[obj.index].node.fluid.originalName.split('.jpg')[0];
-            const imageTitle = imageEdge.node.childStaticJson.title; 
-            return imageFileName === imageTitle; 
-        })[0];
+        console.log(e, obj)
         this.setState({ 
-            showModal: imageData && true, 
+            showModal: true, 
             currentImage: obj.index, 
             el: e.currentTarget, 
-            imageData: imageData,
         });
     }
 
@@ -69,12 +63,11 @@ class PhotoGallery extends React.Component {
         return <div>
             <Gallery columns={this.columns} photos={photoSet} margin={10} onClick={this.openModal} ImageComponent={CustomImageComponent}/>
             {this.state.showModal && <div className={classes.backdrop}></div>}
-            {this.state.imageData && <PhotoModal 
+            {<PhotoModal 
                 open={this.state.showModal}
                 handleClose={this.handleClose}
                 el={this.state.el}
                 image={this.props.images[this.state.currentImage].node}
-                imageData={this.state.imageData.node.childStaticJson}
             /> }
         </div>
     }
